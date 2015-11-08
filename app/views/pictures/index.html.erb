@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tyler's Favorite Mug Shots</h1>
+
+
+  <div class= "mugshotscontainer">
+    <% @pictures.each do |picture| %>
+      <div class="mugshotimages">
+        <ul>
+        <li><%= picture.title %></li>
+        <li><%= image_tag picture.url %>​</li>
+        <li><%= picture.album %></li>
+        <!-- <%= picture.url %> -->
+        <li><%= link_to 'Show', picture %></li>
+        <li><%= link_to 'Edit', edit_picture_path(picture) %></li>
+        <li><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+      </div>
+    <% end %>
+  </div>
+
+<br>
+
+<%= link_to 'New Picture', new_picture_path %>
